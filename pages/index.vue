@@ -179,7 +179,7 @@
       </div>
 
       <div class="tw-relative tw-ml-0 lg:tw-ml-64 tw-flex tw-flex-col tw-w-full tw-h-full">
-        <div class="tw-fixed tw-top-0 tw-left-0 lg:tw-left-64 tw-right-0 tw-bg-gray-900 tw-shadow-b-xl">
+        <div style="z-index: 999" class="tw-fixed tw-top-0 tw-left-0 lg:tw-left-64 tw-right-0 tw-bg-gray-900 tw-shadow-lg">
           <div class="tw-flex tw-items-center tw-px-4 tw-py-1">
             <div class="tw-w-1/3 lg:tw-w-3/12 tw-py-2 tw-bg-transparent tw-flex tw-items-center tw-justify-center">
               <div class="tw-inline-flex tw-gap-2 tw-items-center">
@@ -201,7 +201,8 @@
               </div>
             </div>
 
-            <div class="tw-w-1/3 lg:tw-w-6/12 tw-pl-1 tw-bg-gray-800 tw-h-full tw-flex tw-items-center tw-justify-between ">
+            <div
+              class="tw-w-1/3 lg:tw-w-6/12 tw-pl-1 tw-bg-gray-800 tw-h-full tw-flex tw-items-center tw-justify-between ">
               <img class="tw-h-11 tw-w-11 tw-my-1"
                    src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                    alt="music-image">
@@ -212,6 +213,7 @@
                 </div>
               </div>
             </div>
+
             <div class="tw-w-1/3 lg:tw-w-3/12 tw-bg-transparent tw-flex tw-items-center tw-justify-end">
               <div class="tw-w-2/3 tw-flex tw-items-center tw-justify-between">
                 <button>
@@ -222,8 +224,9 @@
                   <button>
                     <v-icon color="white" class="tw-text-white">mdi-comment-quote-outline</v-icon>
                   </button>
-                  <button class="">
-                    <v-icon color="white" class="tw-text-white">mdi-format-list-bulleted</v-icon>
+                  <button :class="showHistoriqueAside ? 'tw-bg-gray-800 tw-rounded-lg' : ''"
+                          @click="showHistoriqueAside =! showHistoriqueAside">
+                    <v-icon color="white" class="tw-text-white tw-m-1.5">mdi-format-list-bulleted</v-icon>
                   </button>
                 </div>
               </div>
@@ -233,39 +236,89 @@
 
         <div class="tw-mt-14 tw-w-full">
           <div class="tw-flex tw-items-start tw-w-full tw-h-full">
-            <div class="tw-w-full tw-h-screen tw-m-6 tw-bg-gray-50 tw-flex tw-flex-col tw-gap-6 tw">
-             Main
+            <div class="tw-w-full tw-p-6 tw-bg-gray-900 tw-flex tw-flex-col tw-gap-4">
+              <h1 class="tw-text-white tw-text-xl tw-font-semibold">Parcourir les catégories</h1>
+              <div class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-6">
+                <a v-for="i in 27"
+                   href="#"
+                   style="background-image: url(https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)"
+                   class="tw-relative tw-block tw-overflow-hidden tw-rounded-xl tw-bg-cover tw-bg-center tw-bg-no-repeat"
+                >
+                  <span
+                    class="tw-absolute tw-right-4 tw-top-4 tw-inline-flex tw-items-center tw-rounded-full tw-bg-black tw-px-3 tw-py-1 tw-text-xs tw-font-semibold tw-text-white">
+                    4.5
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="tw-ml-1.5 tw-h-4 tw-w-4 tw-text-yellow-300"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                  </span>
+
+                  <div class="tw-relative tw-bg-[#322328] tw-bg-opacity-40 tw-px-6 tw-pb-4 tw-pt-40 tw-text-white">
+                    <h3 class="tw-text-xl tw-font-bold">DJ Mixes</h3>
+
+                    <p class="tw-text-sm">Afrikaans</p>
+                  </div>
+                </a>
+              </div>
             </div>
+          </div>
 
 
-            <div class="tw-fixed tw-right-0 tw-top-14 tw-w-64 lg:tw-w-[20%] tw-px-4 tw-h-screen tw-shadow-b-xl tw-bg-gray-900">
-              <div class="tw-flex tw-flex-col tw-gap-4">
-                <div class="tw-bg-gray-800 tw-rounded tw-font-medium tw-shadow tw-mt-4 tw-flex tw-justify-between tw-gap-2 tw-relative tw-items-center">
-                  <button class="tw-text-white tw-bg-gray-500 tw-w-1/2 tw-py-1 tw-rounded">Suivant</button>
-                  <button class="tw-text-white tw-bg-gray-00 tw-w-1/2 tw-py-1">Historique</button>
+          <div :class="showHistoriqueAside ? 'tw-fixed':'tw-hidden'"
+               class=" tw-right-0 tw-top-14 tw-w-64 lg:tw-w-[20%] tw-px-4 tw-h-screen tw-shadow-b-xl tw-bg-gray-900">
+            <div class="tw-flex tw-flex-col tw-gap-4">
+              <div
+                class="tw-bg-gray-800 tw-rounded tw-font-medium tw-shadow tw-mt-4 tw-flex tw-justify-between tw-relative tw-items-center">
+                <button @click="showQueue = true, showHistorique = false" :class="showQueue ? 'tw-bg-gray-500 tw-rounded' : ''" class="tw-duration-150 tw-text-white tw-w-1/2 tw-py-1">Suivant</button>
+                <button @click="showHistorique = true, showQueue = false" :class="showHistorique ? 'tw-bg-gray-500 tw-rounded' : ''" class="tw-duration-150 tw-text-white tw-w-1/2 tw-py-1">Historique</button>
+              </div>
+
+              <hr>
+              <div v-if="showQueue" class="tw-flex tw-flex-col">
+                <div class="tw-flex tw-items-center tw-justify-between tw-py-2">
+                  <h1 class="tw-text-white">File d'attente</h1>
+                  <div class="tw-inline-flex tw-gap-2 tw-text-gray-300">
+                    <button>Effacer</button>
+                    <v-icon class="tw-text-white">mdi-update</v-icon>
+                  </div>
                 </div>
-
-                <hr>
                 <div class="tw-flex tw-flex-col">
-                  <div class="tw-flex tw-items-center tw-justify-between tw-py-2">
-                    <h1 class="tw-text-white">File d'attente</h1>
-                    <div class="tw-inline-flex tw-gap-2 tw-text-gray-300">
-                      <button>Effacer</button>
-                      <v-icon class="tw-text-white">mdi-update</v-icon>
+                  <div class="tw-flex tw-items-center tw-gap-2 tw-py-2 tw-border-b tw-border-gray-400" v-for="i in 12">
+                    <img class="tw-h-12 tw-w-12 tw-rounded tw-bg-cover" src="https://images.unsplash.com/photo-1495305379050-64540d6ee95d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                         alt="song-caption">
+                    <div class="tw-flex tw-flex-col tw-gap-1">
+                      <h1 class="tw-text-white tw-font-medium tw-text-sm">Peureux</h1>
+                      <h1 class="tw-text-gray-400 tw-text-xs tw-font- text-truncate">AI Asplash & Bilal Danjum lash &
+                        Bilal Danjum</h1>
                     </div>
+                    <h2 class="tw-text-gray-400 tw-font-medium text-truncate">3:22</h2>
                   </div>
+                </div>
+              </div>
 
-                  <div class="tw-flex tw-flex-col">
-                    <div class="tw-flex tw-items-center tw-gap-2 tw-py-2 tw-border-b tw-border-gray-400" v-for="i in 6">
-                      <img class="tw-h-12 tw-w-12 tw-rounded tw-bg-cover" src="../assets/img/sheesh-logo.PNG" alt="song-caption">
-                      <div class="tw-flex tw-flex-col tw-gap-1">
-                        <h1 class="tw-text-white tw-font-medium tw-text-sm">Peureux</h1>
-                        <h1 class="tw-text-gray-400 tw-text-xs tw-font- text-truncate">AI Asplash & Bilal Danjum lash & Bilal Danjum</h1>
-                      </div>
-                      <h2 class="tw-text-gray-400 tw-font-medium text-truncate">3:22</h2>
+              <div v-if="showHistorique" class="tw-flex tw-flex-col">
+                <div class="tw-flex tw-items-center tw-justify-between tw-py-2">
+                  <h1 class="tw-text-white">Historique</h1>
+                  <div class="tw-inline-flex tw-gap-2 tw-text-gray-300">
+                    <button>Effacer</button>
+                    <v-icon class="tw-text-white">mdi-update</v-icon>
+                  </div>
+                </div>
+                <div class="tw-flex tw-flex-col">
+                  <div class="tw-flex tw-items-center tw-gap-2 tw-py-2 tw-border-b tw-border-gray-400" v-for="i in 7">
+                    <img class="tw-h-12 tw-w-12 tw-rounded tw-bg-cover" src="https://images.unsplash.com/photo-1587714656374-fb3c9c3a4977?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                         alt="song-caption">
+                    <div class="tw-flex tw-flex-col tw-gap-1">
+                      <h1 class="tw-text-white tw-font-medium tw-text-sm">Rita Ora</h1>
+                      <h1 class="tw-text-gray-400 tw-text-xs tw-font- text-truncate">Body On Me ft Chris Brown</h1>
                     </div>
+                    <h2 class="tw-text-gray-400 tw-font-medium text-truncate">3:22</h2>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -280,7 +333,11 @@
 export default {
   // layout: 'master',
   data() {
-    return {}
+    return {
+      showHistoriqueAside: false,
+      showHistorique: false,
+      showQueue: true,
+    }
   },
 
 
